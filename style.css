@@ -1,0 +1,228 @@
+    @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap');
+
+    html.theme-one:root {
+        --main-bckg: hsl(222, 26%, 31%);
+        --toggle-bckg: hsl(223, 31%, 20%);
+        --screen-bckg: hsl(224, 36%, 15%);
+        --main-color: hsl(0, 0%, 93%);
+        --key-bckg: hsl(0, 0%, 100%);
+        --key-shadow: hsl(28, 16%, 65%);
+        --key-col1: hsl(6, 63%, 50%);
+        --key-col1-shadow: hsl(6, 70%, 34%);
+        --key-col2: hsl(225, 21%, 49%);
+        --key-col2-shadow: hsl(224, 28%, 35%);
+    }
+    html.theme-two:root {
+        --main-bckg: hsl(0, 0%, 90%);
+        --toggle-bckg: hsl(0, 5%, 81%);
+        --screen-bckg: hsl(0, 0%, 93%);
+        --main-color: hsl(198, 20%, 13%);
+        --key-bckg: hsl(45, 7%, 89%);
+        --key-shadow: hsl(35, 11%, 61%);
+        --key-col1: hsl(25, 98%, 40%);
+        --key-col1-shadow: hsl(25, 99%, 27%);
+        --key-col2: hsl(185, 42%, 37%); 
+        --key-col2-shadow: hsl(185, 58%, 25%);
+    }
+    html.theme-three:root {
+        --main-bckg: hsl(268, 75%, 9%);
+        --toggle-bckg: hsl(268, 71%, 12%);
+        --screen-bckg: hsl(268, 71%, 12%);
+        --main-color: hsl(52, 100%, 62%);
+        --key-bckg: hsl(268, 47%, 21%);
+        --key-shadow: hsl(290, 70%, 36%);
+        --key-col1: hsl(176, 100%, 44%);
+        --key-col1-shadow: hsl(177, 92%, 70%);
+        --key-col2: hsl(281, 89%, 26%); 
+        --key-col2-shadow: hsl(285, 91%, 52%);
+    }
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    body {
+        font-family: 'Spartan', sans-serif;
+        padding: 30px 0;
+        background-color: var(--main-bckg);
+    }
+
+    .container {
+        max-width: 100%;
+        width: 320px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    .calc-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .calc-title {
+        font-size: 28px;
+        color: var(--main-color);
+    }
+    .calc-theme {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .calc-theme span {
+        font-size: 10px;
+        text-transform: uppercase;
+        color: var(--main-color);
+    }
+    .theme-slide {
+        width: 70px;
+        margin-left: 24px;
+        line-height: 1;
+    }
+    .theme-slide .theme-select {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 4px;
+        margin-bottom: 12px;
+        color: var(--main-color);
+    }
+    .theme-slide .theme-slider {
+        width: 70px;
+    }
+    .theme-slide .theme-slider::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 25px;
+        background-color: var(--toggle-bckg);
+        border-radius: 50px;
+        padding: 4px;
+    }
+    .theme-slide .theme-slider::-moz-range-track {
+        width: 100%;
+        height: 20px;
+        background: var(--toggle-bckg);
+        border-radius: 50px;
+        padding: 4px;
+    }
+    .theme-slide .theme-slider::-ms-track {
+        width: 100%;
+        height: 25px;
+        background: var(--toggle-bckg);
+        border-radius: 50px;
+        padding: 4px;
+    }
+    .theme-slide .theme-slider::-webkit-slider-thumb {
+        width: 17px;
+        height: 17px;
+        background: var(--key-col1);
+        border-radius: 50%;
+    }
+    .theme-slide .theme-slider::-moz-range-thumb {
+        width: 17px;
+        height: 17px;
+        background: var(--key-col1);
+        border-radius: 50%;
+    }
+    .theme-slide .theme-slider::-ms-thumb {
+        width: 17px;
+        height: 17px;
+        background: var(--key-col1);
+        border-radius: 50%;
+    }
+
+    .calc-display {
+        width: 100%;
+        padding: 25px;
+        margin: 30px 0 25px;
+        font-size: 28px;
+        color: var(--main-color);
+        background-color: var(--screen-bckg);
+        text-align: right;
+        border-radius: 8px;
+    }
+
+    .calc-keys {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        padding: 25px;
+        background-color: var(--toggle-bckg);
+        border-radius: 8px;
+    }
+    .calc-keys .key {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        font-size: 25px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 12px;
+        border: none;
+    }
+    .calc-keys .key:active {
+        transform: translateY(4px);
+    }
+    .calc-keys .key:active::after {
+        opacity: 0;
+    }
+    .calc-keys .key::after {
+        content: "";
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        box-shadow: 0 3px 0 0 #ccc;
+        border-radius: 16px;
+    }
+    .calc-keys .key[data-action="del"] {
+        color: #fff;
+        background-color: var(--key-col2);
+    }
+    .calc-keys .key[data-action="del"]::after {
+        box-shadow: 0 3px 0 0 var(--key-col2-shadow);
+    }
+    .calc-keys .key[data-action="reset"] {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        color: #fff;
+        background-color: var(--key-col2);
+    }
+    .calc-keys .key[data-action="reset"]::after {
+        box-shadow: 0 3px 0 0 var(--key-col2-shadow);
+    }
+    .calc-keys .key[data-action="equal"] {
+        grid-column-start: 3;
+        grid-column-end: 5;
+        color: #fff;
+        background-color: var(--key-col1);
+    }
+    .calc-keys .key[data-action="equal"]::after {
+        box-shadow: 0 3px 0 0 var(--key-col1-shadow);
+    }
+
+    .calc-keys .key[data-action] {
+        font-size: 15px;
+        text-transform: uppercase;
+    }
+
+    .calc-keys .key.key-pressed {
+        opacity: 0.7;
+    }
+
+
+    @media (min-width: 576px) {
+        body {
+            padding: 100px 0;
+        }
+        .container {
+            width: 540px;
+        }
+        .calc-display {
+            padding: 35px;
+            font-size: 40px;
+        }
+        .calc-keys {
+            padding: 30px;
+            gap: 22px;
+        }
+    }

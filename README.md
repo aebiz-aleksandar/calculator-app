@@ -1,6 +1,8 @@
 # calculator-app
 Calculator APP using Vanilla JavaScript, CSS, HTML
 
+![Calculator APP](/img/screen.png 'Calculator APP')
+
 # Front-end Style Guide
 
 ## Layout
